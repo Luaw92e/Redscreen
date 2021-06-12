@@ -14,105 +14,22 @@
     }
   </style>
 <body>
-  <script>
-const btnOpen  = document.querySelector("#btn-open");   // フルスクリーン化ボタン
-const btnClose = document.querySelector("#btn-close");  // フルスクリーンキャンセルボタン
+  <SCRIPT LANGUAGE="JavaScript">
+<!--
+function fullopen(strURL) {
+var options;
 
-window.onload = ()=>{
-  const album = document.querySelector("#album");      // フルスクリーンにするオブジェクト
+    if (navigator.appName.charAt(0)=='M')
+        options = "fullscreen=1,scrollbars=0";
+    else if (navigator.appName.charAt(0)=='N')
+        options = "scrollbars=0,left=0,top=0"
+                + ",width=" + screen.width
+                + ",height=" + screen.height;
 
-  //--------------------------------
-  // [event] 開始ボタンをクリック
-  //--------------------------------
-  btnOpen.addEventListener("click", ()=>{
-    if( ! enabledFullScreen() ){
-      alert("フルスクリーンに対応していません");
-      return(false);
-    }
-    // フルスクリーンを開始
-    goFullScreen(album);
-  });
-
-  //--------------------------------
-  // [event] 閉じるボタンをクリック
-  //--------------------------------
-  btnClose.addEventListener("click", ()=>{
-    // フルスクリーンを解除
-    cancelFullScreen(album);
-  });
-
-  //--------------------------------
-  // フルスクリーンイベント
-  //--------------------------------
-  eventFullScreen( ()=>{
-      // ボタンを入れ替える
-    if( getFullScreenObject() ){
-      console.log("フルスクリーン開始");
-      btnOpen.style.display  = "none";    // OpenをOFF
-      btnClose.style.display = "block";   // CloseをON
-    }
-    else{
-      console.log("フルスクリーン終了");
-      btnClose.style.display = "none";    // CloseをOFF
-      btnOpen.style.display  = "block";   // OpenをON
-    }
-  });
-};
-
-/**
- * フルスクリーン開始/終了時のイベント設定
- *
- * @param {function} callback
- */
-function eventFullScreen(callback){
-  document.addEventListener("fullscreenchange", callback, false);
-  document.addEventListener("webkitfullscreenchange", callback, false);
-  document.addEventListener("mozfullscreenchange", callback, false);
-  document.addEventListener("MSFullscreenChange", callback, false);
+    window.open(strURL, "", options);
 }
-
-/**
- * フルスクリーンが利用できるか
- *
- * @return {boolean}
- */
-function enabledFullScreen(){
-  return(
-    document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen || document.msFullscreenEnabled
-  );
-}
-
-/**
- * フルスクリーンにする
- *
- * @param {object} [element]
- */
-function goFullScreen(element=null){
-  const doc = window.document;
-  const docEl = (element === null)?  doc.documentElement:element;
-  let requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-  requestFullScreen.call(docEl);
-}
-
-/**
- * フルスクリーンをやめる
- */
-function cancelFullScreen(){
-  const doc = window.document;
-  const cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-  cancelFullScreen.call(doc);
-}
-
-/**
- * フルスクリーン中のオブジェクトを返却
- */
-function getFullScreenObject(){
-  const doc = window.document;
-  const objFullScreen = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement || doc.msFullscreenElement;
-  return(objFullScreen);
-}
-</script>
-
+//-->
+</SCRIPT>
     <font color="white">
       <br>
       A problem has been detected and windows has been shut down to prevent damage to your computer.
