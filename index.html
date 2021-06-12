@@ -13,23 +13,9 @@
        font-size:25px;
     }
   </style>
-<body>
-  <SCRIPT LANGUAGE="JavaScript">
-<!--
-function fullopen(strURL) {
-var options;
-
-    if (navigator.appName.charAt(0)=='M')
-        options = "fullscreen=1,scrollbars=0";
-    else if (navigator.appName.charAt(0)=='N')
-        options = "scrollbars=0,left=0,top=0"
-                + ",width=" + screen.width
-                + ",height=" + screen.height;
-
-    window.open(strURL, "", options);
-}
-//-->
-</SCRIPT>
+<body onload="button1">
+<script>		window.addEventListener('load', function(){						// フルスクリーン表示			document.getElementById('button1').addEventListener('click', function(){				document.body.requestFullscreen();							});
+</script>
     <font color="white">
       <br>
       A problem has been detected and windows has been shut down to prevent damage to your computer.
